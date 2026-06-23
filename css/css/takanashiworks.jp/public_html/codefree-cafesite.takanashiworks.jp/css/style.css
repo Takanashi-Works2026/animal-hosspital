@@ -1,0 +1,452 @@
+/* google fontsを読み込む */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+:root {
+    --font-color: #505050;
+}
+/* base */
+html {
+    -webkit-appearance: none;
+    appearance: none;
+    /* Chrome以外での崩れ防止 */
+    -webkit-text-size-adjust: 100%;
+    /* コンテンツからはみ出ずに文字折り返し */
+    word-break: break-all;
+    /* 移動したときになめらかにスクロール */
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    font-size: 10px;
+}
+
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    /* 文字の色 */
+    color: var(--font-color);
+    /* 一番小さい文字の大きさをとりあえず設定 */
+    font-size: 15px;
+    line-height: calc(25 / 15);
+    margin-top: 5rem;
+}
+#container {
+    width: 100%;
+    overflow: hidden;
+}
+/* common */
+/* PC、SPの非表示 */
+@media (max-width: 767px) {
+    .pc {
+        display: none !important;
+    }
+}
+@media (min-width: 768px) {
+    .sp {
+        display: none !important;
+    }
+}
+main {
+    /* ヘッダーの高さ分MVを下にする→MVの写真が隠れないように */
+    margin-top: 0;
+}
+img {
+    /* 画像を崩さず・余計な余白を出さず・レスポンシブ対応する設定 */
+    width: 100%;
+    height: auto;
+    /* 画像と画像がくっついている場合にへんな隙間が生まれるのを防ぐため */
+    display: block;
+}
+.inner {
+    max-width: 960px;
+    /* 横方向のマージンを自動にして、中央寄せするための指定 */
+    margin-inline: auto;
+}
+
+.section-title {
+    text-align: center;
+}
+.section-title h2 {
+    /* 上下左右の装飾がある場合など */
+    font-size: 3rem;
+    line-height: calc(36 / 30);
+    position: relative;
+}
+.section-title h2::after {
+  content: "";
+  width: 5rem;        /* 線の長さ */
+  height: 0.2rem;        /* 線の太さ */
+  background-color: var(--font-color);
+  position: absolute;
+  top: calc(100% + 1.65rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* header */
+.header {
+    width: 100%;
+    height: 5rem;
+    background: #fff;
+    /* 画面幅が小さくなったときに画面幅に文字が被らないように (デザインカンプにはないよ)*/
+    padding-inline: 0;
+    /* ヘッダーがスクロールをしても常に表示されるようにする */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+
+.header .inner {
+    max-width: 1020px;
+    padding: 0 6rem ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     /* margin: 0 5rem; */
+    padding-inline: 3rem;
+}
+@media (max-width: 1020px) {
+    .header .inner {
+      
+    }
+}
+@media (max-width:767px) {
+    .header .inner {
+      padding: 0 2rem;
+    }
+}
+.header__logo {
+    /* margin-left: -1rem; */
+}
+
+.header__logo h1 a {
+    height: 5rem;
+    /* クリック領域を広げるために・・・ */
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    /* font-weight: 300; */
+    transition:all 0.3s;
+}
+.header__logo h1 a:hover {
+    opacity: 0.7;
+}
+/* hoverができる状態のときにhoverできるようになるよ */
+@media(any-hover: hover){
+.header__logo a:hover { 
+    /* ゆっくり変化するtransitionは親に書くよ */
+    opacity: 0.7;
+}
+}
+.header__nav {
+    /* margin-left: auto; */
+    padding-right: 9px ;
+    
+}
+.header__nav ul {
+    display: flex;
+    align-items: center;
+    /* 横のギャップ */
+    /* justify-content: space-between */
+    column-gap: 4.2rem;
+    
+    
+    
+    
+}
+.header__nav ul li a {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 300;
+    transition: 0.4s;
+    
+}
+/* hoverができる状態のときにhoverできるようになるよ */
+@media(any-hover: hover){
+.header__nav ul li a:hover {
+    /* ゆっくり変化するtransitionは親に書くよ */
+    opacity: 0.7;
+}
+}
+
+/* mv */
+.mv {
+    /* 子にabsoluteしたい時は親にrelative */
+    position: relative;
+}
+.mv-image {
+    width: 100%;
+    aspect-ratio: 1080 / 500;
+}
+@media (max-width: 767px) {
+    .mv-image {
+        aspect-ratio: 375 / 550;
+    }
+}
+.mv-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+.mv-contents {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: calc(40 / 1080 * 100vw);
+    
+}
+@media (max-width: 767px) {
+    .mv-contents {
+        padding-top: calc(45 / 375 * 100vw);
+    }
+}
+/* .mv-catch { */
+    /* width: 100%; */
+    /* display: grid; */
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* position:relative; */
+    /* text-align: center; */
+    /* margin-top: 0; */
+/* } */
+
+.mv-contents h2 {
+    /* font-size: calc(39 / 1080 * 100vw); */
+    font-size: clamp(2.8rem, 3.6vw, 3.9rem);
+    
+}
+@media (max-width: 767px) {
+    .mv-contents h2 {   
+        font-size: calc(35 / 375 * 100vw);
+        line-height: calc(40 / 34);
+        width: 100%;
+    display: grid;
+    justify-content: center;
+    
+    position:relative;
+    text-align: center;
+    margin-top: 0;
+    }
+}
+/* menu */
+.menu {
+    padding: 5.4rem 3rem 3.9rem;
+}
+@media (max-width: 767px) {
+    .menu {
+        padding: 5rem 3rem 4.4rem;
+    }
+}
+.menu__contents {
+    margin-top: 4.7rem;
+}
+@media (max-width: 767px) {
+    .menu-contents {
+        margin-top: 4.6rem;
+    }
+}
+.menu__items {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width:767px) {
+    .menu__items {
+        flex-direction: column;
+        row-gap: 2.4rem;
+    }
+}
+.menu-item {
+    width: calc(300 / 960 * 100%);
+}
+@media (max-width:767px) {
+    .menu-item {
+        width: 100%;
+    }
+}
+.menu-item__image img {
+    aspect-ratio: 300 / 250 ;
+    /* 必ずこれ追加 */
+    object-fit: cover;
+}
+@media (max-width:767px) {
+    .menu-item__image img {
+        aspect-ratio: 315 / 250 ;
+    }
+}
+.menu-item__textarea {
+    /* 基本的には親に余白を */
+    margin-top: 3rem;
+    text-align: center;
+}
+@media (max-width:767px){
+    .menu-item__textarea {
+        margin-top: 2rem
+    }
+}
+.menu-item__textarea h3 {
+    font-size: 2rem;
+    line-height: calc(25 / 20);
+    font-weight: 400;
+    white-space: nowrap;
+}
+.menu-item__text {
+    margin-top: 0.9rem;
+    text-align: center;
+}
+.menu-item__text p {
+    font-size: 1.5rem;
+    line-height: calc(25 / 15);
+}
+/* ABOUT */
+.about {
+    padding: 4.4rem 3rem 4.8rem;
+    background: #0000000D;
+}
+@media (max-width:767px){
+    .about {
+        padding:4.5rem 3rem 5rem ;
+    }
+}
+.about__contents {
+    margin-top: 4.7rem;
+    
+}
+@media (max-width:767px) {
+    .about__contents {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: 2.8rem;
+    }
+}
+.about__item {
+    display: flex;
+    column-gap: calc(39 / 960 * 100%);
+}
+@media (max-width:767px) {
+    .about__item {
+        margin-top: 1.5rem;
+        flex-direction: column-reverse;
+        row-gap: 2.8rem;
+    }
+}
+
+.about__textarea {
+    /* どちらか片方【テキストか画像か】をこうする */
+    flex: 1;
+}
+.about__textarea h3 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: calc(33 / 22);
+}
+@media (max-width:767px){
+    .about__textarea h3 br {
+    display: none;
+  }
+}
+
+
+.about-item__text {
+    margin-top: 2rem;
+}
+@media (max-width: 767px) {
+    .about-item__text{
+        margin-top: 2.1rem;
+    }
+}
+@media (max-width: 767px) {
+    span {
+        display: inline-block;
+    }
+}
+.about-item__text p {
+    font-size: 1.8rem;
+    line-height: calc(33 / 18);
+}
+
+
+.about-item__link {
+    margin-top: 2.5rem;
+}
+@media (max-width: 767px) {
+    
+}
+
+.about-item__link a {
+    width: 25rem;
+    height: 5.5rem;
+    display: grid;
+    /* gridを配置したらplace-content:centerにする */
+    place-content: center;
+    background:var(--font-color);
+    color: #fff;
+    font-size: 2.5rem;
+    /* transitionはhoverの方ではなくこちらに書く */
+    transition:all 0.3s ;
+    border:0.1rem solid var(--font-color);
+}
+@media (max-width: 767px) {
+    .about-item__link a {
+        width: 100%;
+    }
+}
+
+.about-item__link a:hover {
+    background: #fff;
+    color: var(--font-color);
+}
+@media (max-width: 767px) {
+    .about__textarea a{
+    width: 100%;
+    max-width: 315px;
+    /* 画面が変わっても中央寄せ */
+    margin-inline: auto;
+    }
+}
+.about__image {
+    width: calc(450 / 960 * 100%);
+}
+@media (max-width: 767px) {
+    .about__image {
+        width: 100%;
+    }
+}
+.about__image img {
+    width: 100%;
+    aspect-ratio: 450 / 300;
+    object-fit: cover;
+}
+@media (max-width: 767px){
+    .about__image img {
+        aspect-ratio: 315 / 250 ;
+        /* ↑使ったら必ずobject fit:coverを入れる */
+        object-fit: cover;
+    }
+}
+/* footer */
+.footer {
+    height: 9.2rem;
+    background: #505050;
+    color: #fff;
+    display: grid;
+    /* gridを配置したらplace-content:centerにする */
+    place-content: center;
+}
+
+.footer p {
+    font-size: 2rem;
+}
+@media (max-width: 767px){
+    .footer p{
+    font-size: 1.7rem;
+    
+    }
+}
