@@ -1,5 +1,0 @@
-
-AuthUserFile "/home/xs387981/takanashiworks.jp/htpasswd/codefree-cafesite.takanashiworks.jp/.htpasswd"
-AuthName "Member Site"
-AuthType BASIC
-require valid-user
