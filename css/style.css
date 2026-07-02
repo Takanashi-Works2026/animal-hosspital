@@ -320,7 +320,7 @@ img {
 
 @media (max-width: 767px) {
     .mv-catch h2 {
-        font-size:3rem;
+        font-size: calc(30 / 375 * 100vw);
         line-height: calc(40 / 30);
         font-weight: bold;
         transform: translateY(-0.5rem);
@@ -449,7 +449,7 @@ img {
     margin-inline: auto;
 }
 .features__title h2 {
-    margin-top: -0.2rem;
+    margin-top: -0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,14 +462,14 @@ img {
     display: flex;
     flex-direction: column;
     row-gap: 5rem;
-    margin-top: 3.8rem;
+    margin-top: 4.4rem;
     
 }
 
 @media (max-width:767px) {
     .features__contents {
-        row-gap: 4.5rem;
-        margin-top: 3.3rem;
+        row-gap: 4.4rem;
+        margin-top: 4rem;
     }
     }
 
@@ -831,7 +831,7 @@ img {
 /* access*/
 .access {
     width: 100%;
-    padding: 6rem 3rem 6rem;
+    padding: 6rem 3rem 7rem;
 }
 
 @media (max-width:767px) {
@@ -1033,40 +1033,33 @@ img {
 }
 
 .access__map {
-    width: 50%;
+    width:50%;
     aspect-ratio: 440 / 300;
-    
+    position: relative;
+    overflow: hidden;
     
 }
 
 @media (max-width: 767px) {
     .access__map {
         width: 100%;
-        height: 100%;
         aspect-ratio: 335 / 222;
-        display: block;
         margin-top: 1rem;
     }
 }
 
 .access__map iframe {
     width: 100%;
-    height: 100%;
-    
-}
-@media (max-width: 767px) {
-    .access__map iframe {
-        /* height: auto; */
-        
-    }
+    position: absolute;
+    inset: 0;
+    border: 0;
+    display: block;
 }
 
-.access__image img {}
 
 @media (max-width: 767px) {
     .access__image img {
         width: 100%;
-        /* ↑使ったら必ずobject fit:coverを入れる */
         
     }
 }
@@ -1165,8 +1158,6 @@ img {
 }
 
 .contact__row textarea {
-    /* min-height: 240px; */
-    height: 29rem;
     resize: vertical;
     word-break: break-word;
     resize: none;
@@ -1388,7 +1379,6 @@ textarea {
     justify-content: center;
     align-items: center;
     gap: 1.2rem;
-    transition: opacity 0.4s;
 }
 .sns-list a {
     transition: opacity 0.4s;
